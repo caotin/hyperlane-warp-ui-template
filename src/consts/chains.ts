@@ -1,10 +1,12 @@
 import {
   eclipsemainnet,
   eclipsemainnetAddresses,
+  ethereum,
   solanamainnet,
-  solanamainnetAddresses,
+  solanamainnetAddresses
 } from '@hyperlane-xyz/registry';
 import { ChainMap, ChainMetadata } from '@hyperlane-xyz/sdk';
+import { ProtocolType } from '@hyperlane-xyz/utils';
 
 // A map of chain names to ChainMetadata
 // Chains can be defined here, in chains.json, or in chains.yaml
@@ -16,6 +18,9 @@ export const chains: ChainMap<ChainMetadata & { mailbox?: Address }> = {
     // SVM chains require mailbox addresses for the token adapters
     mailbox: solanamainnetAddresses.mailbox,
     // Including a convenient rpc override because the Solana public RPC does not allow browser requests from localhost
+    rpcUrls: process.env.NEXT_PUBLIC_SOLANA_RPC_URL
+      ? [{ http: process.env.NEXT_PUBLIC_SOLANA_RPC_URL }]
+      : solanamainnet.rpcUrls,
   },
   eclipsemainnet: {
     ...eclipsemainnet,
@@ -44,4 +49,26 @@ export const chains: ChainMap<ChainMetadata & { mailbox?: Address }> = {
   //   },
   //   logoURI: '/logo.svg',
   // },
+  ethereum: {
+    ...ethereum,
+    rpcUrls: process.env.NEXT_PUBLIC_ETHEREUM_RPC_URL
+      ? [{ http: process.env.NEXT_PUBLIC_ETHEREUM_RPC_URL }]
+      : ethereum.rpcUrls,
+  },
+  xeneatestnet: {
+    protocol: ProtocolType.Ethereum,
+    chainId: 5555,
+    domainId: 5555,
+    name: 'xeneatestnet',
+    displayName: 'Xenea Testnet',
+    nativeToken: { name: 'XCR', symbol: 'XCR', decimals: 18 },
+    rpcUrls: [{ http: 'https://rpc-kura.cross.technology/' }],
+    blockExplorers: [
+      {
+        name: 'Xenea Scan',
+        url: 'https://testnet.crossvaluescan.com/',
+        apiUrl: 'https://testnet.crossvaluescan.com/api',
+      },
+    ],
+  }
 };
