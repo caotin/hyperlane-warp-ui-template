@@ -11,9 +11,9 @@ export const warpRouteConfigs: WarpCoreConfig = {
       decimals: 18,
       symbol: 'USDC',
       name: 'USD Token',
-      addressOrDenom: '0xc7FeC79b35FEe7227529616bA4F23d264bE2EB8e',
+      addressOrDenom: '0x7CCA9d48416d75595465b48c4fBf4Bb5392b3328',
       collateralAddressOrDenom: '0xe663BAc505122C9166163Dbcc09427872a2Ed64a',
-      connections: [{ token: 'ethereum|xeneatestnet|0xbB509861f899a3A7153bFDd2b9Fc840F147150e7' }],
+      connections: [{ token: 'ethereum|xeneatestnet|0x74Ecd5776084dD6Fc112DFEdD2519A7389e2156D' }],
     },
     {
       chainName: 'xeneatestnet',
@@ -21,8 +21,8 @@ export const warpRouteConfigs: WarpCoreConfig = {
       decimals: 18,
       symbol: 'USDC',
       name: 'USD Token',
-      addressOrDenom: '0xbB509861f899a3A7153bFDd2b9Fc840F147150e7',
-      connections: [{ token: 'ethereum|basesepolia|0xc7FeC79b35FEe7227529616bA4F23d264bE2EB8e' }],
+      addressOrDenom: '0x74Ecd5776084dD6Fc112DFEdD2519A7389e2156D',
+      connections: [{ token: 'ethereum|basesepolia|0x7CCA9d48416d75595465b48c4fBf4Bb5392b3328' }],
     },
     {
       chainName: 'polygonamoy',
